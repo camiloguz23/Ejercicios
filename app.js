@@ -1,34 +1,33 @@
 //^ Array
 
 const list = ["ca", "mi", "lo", "jey"];
-//             0     1    2    3
-// list.push('as') //
-// console.log(list)
-// list.pop() //
-// console.log(list)
-// list.splice(3,1) //
-// console.log(list)
+list.push('as') 
+console.log(list)
+list.pop() 
+console.log(list)
+list.splice(3,1) 
+console.log(list)
 
 //^ map
-// const newList = list.map((item,index,list) => {
-//     return item.includes("c") ? 'tengo una c': item
-// })
+const newList = list.map((item,index,list) => {
+    return item.includes("c") ? 'tengo una c': item
+})
 
 //^ filter
 
-// const newList = list.filter((item) => {
-//     if (item.includes("c")) {
-//         return item
-//     }
-// })
+const newList2 = list.filter((item) => {
+    if (item.includes("c")) {
+        return item
+    }
+})
 
 //^ reduce
 
-// const numbers = [1,2,3,4,5]
+const numbers = [1,2,3,4,5]
 
-// const sum = numbers.reduce((valor1,valor2) => valor1+valor2,1)
+const sum = numbers.reduce((valor1,valor2) => valor1+valor2,1)
 
-// console.log(sum);
+console.log(sum);
 
 //^ objetos
 
