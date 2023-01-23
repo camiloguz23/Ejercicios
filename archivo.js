@@ -1212,3 +1212,50 @@ const datos = [
     completed: false,
   },
 ];
+
+//cuantos registros estan completos 
+const comp = datos.filter((item) => item.completed).length;
+console.log( comp + " registros completos")
+
+
+
+
+//cuantos registros estan incompletos 
+const incom = datos.filter((item) => !item.completed ).length;
+console.log(  `${incom}  registros incompletos` )
+
+//cuantos registros tiene userID 1 
+const reg1=datos.filter((item)=>item.userId==1).length;
+console.log(reg1 + " registros tiene userID 1" )
+
+//cuantos registros tiene userID 3
+const reg3=datos.filter((item)=>item.userId==1).length;
+console.log(reg3 + " registros tiene userID 3" )
+
+/*cada registro agregar nacionalidad de esta forma : 
+  los de userID 1 agregar nacionalidad Colombia, 
+  los de userID 2 agregar nacionalidad españa 
+  a cada userID una nacionalidad distintan 
+*/
+
+
+const reg = datos.map((item) => {
+  if (item.userId === 1) {
+   item.nacionalidad="CO";
+   return item
+   }
+   if(item.userId===2){
+     item.nacionalidad="ES";
+     return item
+
+   }
+    item.nacionalidad="MX"
+    return item
+ });
+
+ console.log(reg)
+
+
+// saber cuantos userID hay en total en los registros
+const regx=datos.filter((item)=>item.userId).length;
+console.log(regx + " userId registrados" )
