@@ -1212,3 +1212,22 @@ const datos = [
     completed: false,
   },
 ];
+
+const nacionalidad = {
+  1:'CO',
+  2:'ES',
+  3:'MX',
+  4:'ARG'
+}
+
+const reg = datos.map((item) => {
+  if (nacionalidad[item.userId]) {
+    item.nacionalidad = nacionalidad[item.userId]
+  }
+  return item
+ })
+ const id = 5
+
+nacionalidad[2] = "Colombia"
+console.log(nacionalidad)
+console.log(datos.at(-1))
