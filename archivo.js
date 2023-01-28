@@ -1214,20 +1214,50 @@ const datos = [
 ];
 
 const nacionalidad = {
-  1:'CO',
-  2:'ES',
-  3:'MX',
-  4:'ARG'
-}
+  1: "CO",
+  2: "ES",
+  3: "MX",
+  4: "ARG",
+};
 
-const reg = datos.map((item) => {
-  if (nacionalidad[item.userId]) {
-    item.nacionalidad = nacionalidad[item.userId]
-  }
-  return item
- })
- const id = 5
+const result = (list = [], indicador, completed = true) => {
+  const data = list.filter((item) => item[indicador] == completed);
 
-nacionalidad[2] = "Colombia"
-console.log(nacionalidad)
-console.log(datos.at(-1))
+  return data.length;
+};
+
+const addNacionality = (list = []) => {
+  const nacionality = {
+    1: "COL",
+    2: "ESP",
+    3: "FRA"
+  };
+  const data = list.map((item) => {
+    if (nacionality[item.userId]) {
+      item.nacionalidad = nacionality[item.userId];
+      return item;
+    }
+
+    item.nacionalidad = "MX";
+    return item;
+  });
+
+  return data;
+};
+
+const onUser = (list = [], User,counterList = true) => {
+  const methodUSer = {
+    1: list.filter((item) => item.userId == 1),
+    2: list.filter((item) => item.userId == 2),
+    total: list.filter((item) => item.userId),
+    nacionalidad: addNacionality(list)
+  };
+  return counterList? methodUSer[User].length : methodUSer[User];
+};
+
+console.log("tenemos no completado", result(datos, "completed", false));
+console.log("tenemos completado", result(datos, "completed"));
+console.log("number usurio 1", onUser(datos, 1));
+console.log("number usurio 2", onUser(datos, 2));
+console.log("total de usuarios", onUser(datos, "total"));
+console.log("nacionalidad", onUser(datos, "nacionalidad",false));
